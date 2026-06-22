@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A beginner-friendly workspace for setup steps, Linux and Git commands, and fictional AI lab notes."
+    />
+    <title>AI Foundations Lab</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <p class="eyebrow">AI Foundations · Part 2</p>
+        <h1>Your practical lab companion</h1>
+        <p class="intro">
+          Follow the setup steps, keep useful commands close, and record a fictional
+          experiment—all in one local, beginner-friendly workspace.
+        </p>
+        <nav aria-label="Page sections">
+          <a href="#setup">Setup</a>
+          <a href="#commands">Commands</a>
+          <a href="#notes">Lab notes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="setup" class="panel">
+        <div class="section-heading">
+          <span class="step-number">01</span>
+          <div>
+            <p class="eyebrow">Start here</p>
+            <h2>Setup checklist</h2>
+          </div>
+        </div>
+        <p class="section-copy">Check each item as you prepare your local workspace.</p>
+        <div class="checklist">
+          <label><input type="checkbox" /> Open a terminal</label>
+          <label><input type="checkbox" /> Confirm Node.js is installed with <code>node -v</code></label>
+          <label><input type="checkbox" /> Confirm Git is installed with <code>git --version</code></label>
+          <label><input type="checkbox" /> Clone or download this project</label>
+          <label><input type="checkbox" /> Install the project packages with <code>npm install</code></label>
+          <label><input type="checkbox" /> Start the app with <code>npm run dev</code></label>
+        </div>
+      </section>
+
+      <section id="commands" class="panel">
+        <div class="section-heading">
+          <span class="step-number">02</span>
+          <div>
+            <p class="eyebrow">Keep moving</p>
+            <h2>Linux &amp; Git cheat sheet</h2>
+          </div>
+        </div>
+        <p class="section-copy">A short list of commands you will use often.</p>
+        <div class="command-columns">
+          <div>
+            <h3>Linux basics</h3>
+            <dl class="command-list">
+              <div><dt><code>pwd</code></dt><dd>Show your current folder</dd></div>
+              <div><dt><code>ls</code></dt><dd>List files and folders</dd></div>
+              <div><dt><code>cd folder</code></dt><dd>Move into a folder</dd></div>
+              <div><dt><code>cd ..</code></dt><dd>Move up one folder</dd></div>
+              <div><dt><code>mkdir name</code></dt><dd>Create a folder</dd></div>
+              <div><dt><code>clear</code></dt><dd>Clear the terminal screen</dd></div>
+            </dl>
+          </div>
+          <div>
+            <h3>Git basics</h3>
+            <dl class="command-list">
+              <div><dt><code>git status</code></dt><dd>Review changed files</dd></div>
+              <div><dt><code>git add .</code></dt><dd>Stage current changes</dd></div>
+              <div><dt><code>git commit -m "message"</code></dt><dd>Save a snapshot</dd></div>
+              <div><dt><code>git log --oneline</code></dt><dd>View commit history</dd></div>
+              <div><dt><code>git pull</code></dt><dd>Download remote changes</dd></div>
+              <div><dt><code>git push</code></dt><dd>Upload local commits</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="notes" class="panel notes-panel">
+        <div class="section-heading">
+          <span class="step-number">03</span>
+          <div>
+            <p class="eyebrow">Document the work</p>
+            <h2>Fictional AI lab notes</h2>
+          </div>
+        </div>
+        <p class="section-copy">
+          Practice recording an experiment. Your notes stay only in this browser.
+        </p>
+
+        <form id="lab-notes-form">
+          <div class="form-grid">
+            <label>
+              Experiment title
+              <input id="title" name="title" type="text" placeholder="Example: Sorting moon rocks" />
+            </label>
+            <label>
+              Date
+              <input id="date" name="date" type="date" />
+            </label>
+          </div>
+
+          <label>
+            Goal
+            <textarea id="goal" name="goal" rows="3" placeholder="What are you trying to learn?"></textarea>
+          </label>
+          <label>
+            Tools used
+            <input id="tools" name="tools" type="text" placeholder="Example: JavaScript, sample dataset, notebook" />
+          </label>
+          <label>
+            Observations
+            <textarea id="observations" name="observations" rows="4" placeholder="What happened during the experiment?"></textarea>
+          </label>
+          <label>
+            Results
+            <textarea id="results" name="results" rows="4" placeholder="What did the experiment produce?"></textarea>
+          </label>
+          <label>
+            Next steps
+            <textarea id="nextSteps" name="nextSteps" rows="3" placeholder="What would you try next?"></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button class="button primary" type="submit">Save notes</button>
+            <button class="button secondary" id="load-notes" type="button">Load saved notes</button>
+            <button class="button danger" id="clear-notes" type="button">Clear notes</button>
+          </div>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built for local learning. No account, API, or backend required.</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
