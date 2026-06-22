@@ -5,6 +5,11 @@ const form = document.querySelector('#lab-notes-form')
 const statusMessage = document.querySelector('#form-status')
 const loadButton = document.querySelector('#load-notes')
 const clearButton = document.querySelector('#clear-notes')
+const analogClock = document.querySelector('#analog-clock')
+const clockTime = document.querySelector('#clock-time')
+const hourHand = document.querySelector('#hour-hand')
+const minuteHand = document.querySelector('#minute-hand')
+const secondHand = document.querySelector('#second-hand')
 
 const fieldNames = [
   'title',
@@ -15,6 +20,25 @@ const fieldNames = [
   'results',
   'nextSteps',
 ]
+
+function updateClock() {
+  const now = new Date()
+  const seconds = now.getSeconds()
+  const minutes = now.getMinutes()
+  const hours = now.getHours()
+  const readableTime = now.toLocaleTimeString([], {
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+  })
+
+  hourHand.style.setProperty('--rotation', `${(hours % 12) * 30 + minutes * 0.5}deg`)
+  minuteHand.style.setProperty('--rotation', `${minutes * 6 + seconds * 0.1}deg`)
+  secondHand.style.setProperty('--rotation', `${seconds * 6}deg`)
+  clockTime.textContent = readableTime
+  clockTime.dateTime = now.toISOString()
+  analogClock.setAttribute('aria-label', `Current local time: ${readableTime}`)
+}
 
 function showStatus(message) {
   statusMessage.textContent = message
@@ -66,3 +90,6 @@ form.addEventListener('submit', (event) => {
 
 loadButton.addEventListener('click', loadNotes)
 clearButton.addEventListener('click', clearNotes)
+
+updateClock()
+setInterval(updateClock, 1000)
